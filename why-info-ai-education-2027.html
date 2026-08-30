@@ -190,7 +190,7 @@
   .arrow span:first-child{color:var(--accent);flex:none}
 
   .tbl-wrap{overflow-x:auto;margin:1.5rem 0 .6rem;border:1px solid var(--line);border-radius:.55rem;box-shadow:var(--shadow)}
-  table{border-collapse:collapse;width:100%;min-width:31rem;background:var(--surface);font-size:.88rem}
+  table{border-collapse:collapse;width:100%;min-width:35rem;background:var(--surface);font-size:.88rem}
   caption{
     caption-side:top;text-align:left;padding:.95rem 1.1rem;
     font-size:.8rem;letter-spacing:.02em;font-weight:600;
@@ -376,24 +376,25 @@
 
       <div class="tbl-wrap">
         <table>
-          <caption>국가 교육과정 기준 수업시수 — 초·중학교 9년 (2027학년도 고1 입학생 기준 / 2015 개정 교육과정)</caption>
+          <caption>국가 교육과정 기준 수업시수 — 초·중·고 (2027학년도 고1 입학생 기준 / 2015 개정 교육과정)</caption>
           <thead>
             <tr>
               <th scope="col">교과</th>
-              <th scope="col">초등학교 6년</th>
-              <th scope="col">중학교 3년</th>
-              <th scope="col">초·중 누적</th>
+              <th scope="col">초등학교</th>
+              <th scope="col">중학교</th>
+              <th scope="col">고등학교 <sup>*</sup></th>
+              <th scope="col">초·중·고 누적</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>국어</td><td>1,264</td><td>442</td><td>1,706</td></tr>
-            <tr><td>수학</td><td>800</td><td>374</td><td>1,174</td></tr>
-            <tr><td>영어</td><td>340</td><td>340</td><td>680</td></tr>
-            <tr><td>사회·도덕</td><td>544</td><td>510</td><td>1,054</td></tr>
-            <tr><td>과학 <sup>*</sup></td><td>204 <sup>*</sup></td><td>680 <sup>*</sup></td><td>884 <sup>*</sup></td></tr>
-            <tr class="hi"><td>정보 <sup>*</sup></td><td><span class="sm">별도 과목 없음</span></td><td>34시간</td><td>34시간 이상 <sup>*</sup></td></tr>
-            <tr><td>체육</td><td>408</td><td>272</td><td>680</td></tr>
-            <tr><td>예술(음악·미술)</td><td>544</td><td>272</td><td>816</td></tr>
+            <tr><td>국어</td><td>1,264</td><td>442</td><td>136</td><td>1,842</td></tr>
+            <tr><td>수학</td><td>800</td><td>374</td><td>136</td><td>1,310</td></tr>
+            <tr><td>영어</td><td>340</td><td>340</td><td>136</td><td>816</td></tr>
+            <tr><td>사회·도덕</td><td>544</td><td>510</td><td>136</td><td>1,190</td></tr>
+            <tr><td>과학 <sup>*</sup></td><td>204 <sup>*</sup></td><td>680 <sup>*</sup></td><td>136</td><td>1,020 <sup>*</sup></td></tr>
+            <tr class="hi"><td>정보 <sup>*</sup></td><td><span class="sm">별도 과목 없음</span></td><td>34시간</td><td><span class="sm">선택</span></td><td>34시간 이상 <sup>*</sup></td></tr>
+            <tr><td>체육</td><td>408</td><td>272</td><td><span class="sm">선택</span></td><td>680+</td></tr>
+            <tr><td>예술(음악·미술)</td><td>544</td><td>272</td><td><span class="sm">선택</span></td><td>816+</td></tr>
           </tbody>
         </table>
       </div>
@@ -401,11 +402,23 @@
 
       <div class="notes">
         <ol>
+          <li><strong>고등학교 시수는 필수(공통과목)만 표시</strong> — 136시간은 전 학생이 반드시 이수하는 공통과목(국어·수학·영어·통합사회·통합과학 각 8단위, 1단위＝17시간) 기준입니다. 「정보」·체육·예술 등 선택중심 과목은 학생 선택에 따라 달라져 '선택'으로 표시했습니다. 한국사(6단위·102시간)는 별도 공통과목입니다.</li>
           <li><strong>과학 시수는 교과군 단위 배당</strong> — 초등 3~4학년 과학 204시간은 과학/실과 교과군 배당이며, 5~6학년은 과학과 실과가 함께 배당되어 단독 분리가 어렵습니다. 중학교 680시간은 과학/기술·가정/정보 교과군 전체 배당으로, 그 안에 정보(34시간)가 포함되어 있습니다. <a href="https://www.yna.co.kr/view/AKR20150922094400004" target="_blank" rel="noopener">연합뉴스</a></li>
           <li><strong>초·중학교 정보교육 최소 기준</strong> — 초등학교 5~6학년 실과 내 소프트웨어 교육 17시간 이상, 중학교 정보 교과 34시간 이상을 편성·운영합니다(학교별 편성에 따라 다를 수 있음). 표의 '34시간 이상*'은 정보 교과 기준이며, 초등 실과 내 SW 교육을 포함한 초·중학교 정보·SW 관련 교육은 <strong>최소 51시간 이상</strong>입니다.</li>
           <li><strong>고등학교에서는 선택하지 않으면 배우지 못한다</strong> — 2022 개정 교육과정에서도 고등학교 「정보」는 일반 선택과목, 「인공지능 기초」·「데이터 과학」은 진로 선택과목, 「소프트웨어와 생활」은 융합 선택과목으로 편성되어, 선택하지 않은 학생은 고등학교에서 정보·AI 교육을 받지 못합니다. 또한 2027학년도 고1 입학생은 초·중학교를 2015 개정으로 이수했기 때문에, 2022 개정의 정보교육 확대(초등 34시간, 중학교 68시간)는 이 학생들에게 적용되지 않습니다. <a href="https://www.kyobit.com/news/articleView.html?idxno=2308" target="_blank" rel="noopener">교보it뉴스</a> · <a href="https://home.pen.go.kr/hscredit/cm/cntnts/cntntsView.do?cntntsId=3729&mi=17411" target="_blank" rel="noopener">고교학점제 지원센터</a> · <a href="https://use.go.kr/component/file/ND_fileDownload.do?q_fileSn=779441&q_fileId=8fcacfc9-59ec-4e44-a015-9de36fdb28cf" target="_blank" rel="noopener">2022 개정 교육과정 총론</a></li>
         </ol>
       </div>
+
+      <p style="margin-top:1.5rem">
+        배운 시간이 적은 만큼, 학생들의 디지털 역량도 전반적으로 높지 않습니다.
+        한국교육학술정보원(KERIS)이 전국 초·중학생을 대상으로 측정한 「<strong>학생 디지털 리터러시 수준</strong>」은
+        100점 만점에 초등학생 <strong>60.46점</strong>, 중학생 <strong>59.98점</strong>에 그쳤고,
+        특히 <em class="mark">정보를 창의적으로 생산·활용하는 영역</em>이 가장 취약했습니다 — 정보 교과가 길러야 할 바로 그 능력입니다.
+      </p>
+      <p style="font-size:.8rem;color:var(--ink-3);margin:-.4rem 0 0">
+        출처: 한국교육학술정보원(KERIS), 「2025년 학생 디지털 리터러시 수준 측정 연구」 ·
+        <a href="https://www.newsis.com/view/NISX20260327_0003567279" target="_blank" rel="noopener">뉴시스, 2026-03-27</a>
+      </p>
 
       <div class="big-phrase">
         적게 배웠지만,<br>
@@ -507,17 +520,8 @@
         <strong>학교에서 보장되는 정보교육이 가장 절실한 안전망</strong>입니다.
         가정환경과 경제적 여건에 따라 학생들이 디지털 기기, 인터넷 통신 환경,
         생성형 AI 도구, 코딩·SW 교육 프로그램에 일상적으로 접할 수 있는 정도는
-        크게 달라집니다.
-      </p>
-      <p>
-        게다가 학생들의 디지털 역량은 전반적으로 높지 않습니다.
-        한국교육학술정보원(KERIS)이 전국 초·중학생을 대상으로 측정한 「<strong>학생 디지털 리터러시 수준</strong>」은
-        100점 만점에 초등학생 <strong>60.46점</strong>, 중학생 <strong>59.98점</strong>에 그쳤고,
-        특히 <em class="mark">정보를 창의적으로 생산·활용하는 영역</em>이 가장 취약했습니다 — 정보 교과가 길러야 할 바로 그 능력입니다.
-      </p>
-      <p style="font-size:.8rem;color:var(--ink-3);margin:-.4rem 0 1.05rem">
-        출처: 한국교육학술정보원(KERIS), 「2025년 학생 디지털 리터러시 수준 측정 연구」 ·
-        <a href="https://www.newsis.com/view/NISX20260327_0003567279" target="_blank" rel="noopener">뉴시스, 2026-03-27</a>
+        크게 달라집니다. <strong>Ⅱ에서 보았듯</strong> 학생들의 디지털 역량은 이미 전반적으로 낮은 수준이며,
+        학교가 공통으로 가르치지 않으면 그 격차는 좁혀지지 않습니다.
       </p>
       <p class="quote">
         정보교육을 <strong>모든 학생에게 보장하는 것</strong>은,
