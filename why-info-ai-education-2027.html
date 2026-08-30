@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>왜 모든 학생이 정보·AI를 배워야 하는가</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+
+<style>
+  :root{
+    --paper:#f1f1f5;
+    --surface:#ffffff;
+    --surface-2:#e8e8ef;
+    --ink:#20223a;
+    --ink-2:#535572;
+    --ink-3:#83849b;
+    --line:#dbdbe4;
+    --line-strong:#bcbcca;
+    --accent:#3a3c86;
+    --accent-soft:#e7e7f4;
+    --flag:#9d4460;
+    --flag-soft:#f1e2e8;
+    --shadow:0 1px 2px rgba(32,34,58,.05),0 10px 30px rgba(32,34,58,.07);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#131320;
+      --surface:#1c1c2b;
+      --surface-2:#262638;
+      --ink:#e8e8f1;
+      --ink-2:#a8a9c0;
+      --ink-3:#7c7d94;
+      --line:#2e2e40;
+      --line-strong:#424254;
+      --accent:#9799ea;
+      --accent-soft:#242449;
+      --flag:#d98da8;
+      --flag-soft:#392530;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#131320;
+    --surface:#1c1c2b;
+    --surface-2:#262638;
+    --ink:#e8e8f1;
+    --ink-2:#a8a9c0;
+    --ink-3:#7c7d94;
+    --line:#2e2e40;
+    --line-strong:#424254;
+    --accent:#9799ea;
+    --accent-soft:#242449;
+    --flag:#d98da8;
+    --flag-soft:#392530;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+    font-size:16.5px;
+    line-height:1.78;
+    font-weight:400;
+    letter-spacing:-.003em;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:47rem;margin:0 auto;padding:clamp(1.1rem,4vw,3rem) clamp(1.1rem,4vw,2rem) 5rem}
+
+  .masthead{
+    border-top:3px solid var(--ink);
+    border-bottom:1px solid var(--line-strong);
+    padding:1.4rem 0 1.5rem;
+    margin-bottom:2.6rem;
+  }
+  .kicker{
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin:0 0 .9rem;
+  }
+  h1{
+    font-family:"Noto Serif KR",serif;
+    font-weight:700;
+    font-size:clamp(1.5rem,4.4vw,2.15rem);
+    line-height:1.36;
+    letter-spacing:-.02em;
+    margin:0 0 1.1rem;
+    text-wrap:balance;
+  }
+  .meta{
+    display:flex;flex-wrap:wrap;gap:.35rem 1.4rem;
+    font-size:.82rem;color:var(--ink-2);
+    padding-top:.9rem;border-top:1px solid var(--line);
+  }
+  .meta b{color:var(--ink);font-weight:600}
+
+  .lede{
+    font-size:1.06rem;color:var(--ink-2);
+    border-left:3px solid var(--accent);
+    padding:.15rem 0 .15rem 1.1rem;
+    margin:0 0 3rem;
+  }
+
+  section{margin:0 0 3.2rem}
+  .sec-head{display:flex;gap:.85rem;align-items:baseline;margin:0 0 1.1rem}
+  .sec-num{
+    font-family:"Noto Serif KR",serif;font-weight:600;
+    font-size:1rem;color:var(--flag);
+    flex:none;width:1.6rem;padding-top:.15rem;
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  h2{
+    font-family:"Noto Serif KR",serif;
+    font-weight:600;
+    font-size:clamp(1.14rem,2.9vw,1.36rem);
+    line-height:1.5;
+    letter-spacing:-.015em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .sec-body{padding-left:2.35rem}
+  @media (max-width:33rem){
+    .sec-body{padding-left:0}
+    .sec-head{gap:.55rem}
+  }
+  p{margin:0 0 1.05rem}
+  .sec-body > p:last-child{margin-bottom:0}
+  strong{font-weight:600;color:var(--ink)}
+  em.mark{font-style:normal;background:var(--accent-soft);color:var(--ink);padding:.05em .3em;border-radius:.2em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+  .learn{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:.55rem;
+    box-shadow:var(--shadow);
+    padding:1.3rem 1.4rem;
+    margin:1.4rem 0;
+  }
+  .learn-cap{
+    font-size:.8rem;letter-spacing:.03em;font-weight:600;
+    color:var(--accent);
+    margin:0 0 .95rem;
+  }
+  .learn ul{list-style:none;margin:0;padding:0;display:grid;gap:.62rem}
+  .learn li{position:relative;padding-left:1.4rem;line-height:1.62}
+  .learn li::before{
+    content:"";position:absolute;left:.12rem;top:.6em;
+    width:.4rem;height:.4rem;border:1.5px solid var(--accent);
+    border-radius:2px;transform:rotate(45deg);
+  }
+  .learn li strong{color:var(--ink)}
+
+  .quote{
+    border-left:3px solid var(--flag);
+    background:var(--flag-soft);
+    padding:.85rem 1.1rem;
+    border-radius:0 .4rem .4rem 0;
+    margin:1.3rem 0 0;
+    font-size:1rem;
+  }
+  .quote strong{color:var(--ink)}
+
+  .arrow{
+    display:flex;gap:.6rem;
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:.5rem;
+    padding:.9rem 1.15rem;margin:1.4rem 0 0;
+    font-weight:600;font-size:1rem;color:var(--ink);
+  }
+  .arrow span:first-child{color:var(--accent);flex:none}
+
+  .tbl-wrap{overflow-x:auto;margin:1.5rem 0 .6rem;border:1px solid var(--line);border-radius:.55rem;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:31rem;background:var(--surface);font-size:.88rem}
+  caption{
+    caption-side:top;text-align:left;padding:.95rem 1.1rem;
+    font-size:.8rem;letter-spacing:.02em;font-weight:600;
+    color:var(--accent);border-bottom:1px solid var(--line);line-height:1.5;
+  }
+  th,td{padding:.58rem .9rem;text-align:right;border-bottom:1px solid var(--line);border-right:1px solid var(--line);font-variant-numeric:tabular-nums;line-height:1.45}
+  th:last-child,td:last-child{border-right:none}
+  th:first-child,td:first-child{text-align:left;font-weight:600}
+  thead th{
+    font-weight:600;color:var(--ink-2);font-size:.78rem;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--line-strong);
+  }
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even):not(.hi) td{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+  tr.hi td{background:var(--flag-soft);font-weight:600;color:var(--ink)}
+  tr.hi td:first-child{box-shadow:inset 3px 0 0 var(--flag)}
+  .subtle,sup{color:var(--flag);font-weight:700}
+  td .sm{font-size:.82em;color:var(--ink-3);font-weight:400}
+
+  .notes{
+    margin:1rem 0 0;padding:1.1rem 1.3rem;
+    background:var(--surface);
+    border:1px dashed var(--line-strong);
+    border-radius:.5rem;
+    font-size:.82rem;color:var(--ink-2);line-height:1.7;
+  }
+  .notes ol{margin:0;padding-left:1.3rem;display:grid;gap:.7rem}
+  .notes li::marker{color:var(--flag);font-weight:700}
+  .notes p{margin:0}
+  .notes strong{color:var(--ink)}
+  .notes a{color:var(--accent);text-underline-offset:2px}
+
+  /* Ⅱ — 핵심 문구 */
+  .big-phrase{
+    margin:1.9rem 0 .4rem;padding:1.15rem 1.3rem;
+    text-align:center;
+    font-family:"Noto Serif KR",serif;font-weight:700;
+    font-size:clamp(1.14rem,3.2vw,1.42rem);
+    line-height:1.7;letter-spacing:-.01em;color:var(--ink);
+    text-wrap:balance;
+    background:var(--accent-soft);border:1px solid var(--accent);
+    border-radius:.55rem;
+  }
+  .big-phrase em{font-style:normal;color:var(--flag)}
+
+  /* Ⅳ — 소제목 */
+  .sub{display:flex;gap:.55rem;align-items:baseline;margin:1.7rem 0 .55rem;font-size:1rem;font-weight:600;color:var(--ink);line-height:1.5}
+  .sub b{color:var(--flag);font-weight:700;flex:none;font-variant-numeric:tabular-nums}
+
+  /* Ⅲ — 퍼널 차트 */
+  .funnel{
+    margin:1.5rem 0 .6rem;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:.55rem;
+    box-shadow:var(--shadow);
+    padding:1.35rem 1.4rem 1.5rem;
+  }
+  .funnel-cap{
+    font-size:.8rem;letter-spacing:.02em;font-weight:600;
+    color:var(--accent);margin:0 0 1.15rem;line-height:1.55;
+  }
+  .f-row{display:grid;gap:.32rem}
+  .f-row + .f-row{margin-top:1rem}
+  .f-label{font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.5}
+  .f-label b{color:var(--flag);font-variant-numeric:tabular-nums}
+  .f-track{background:var(--surface-2);border-radius:.32rem;height:2.75rem;overflow:hidden}
+  .f-bar{
+    height:100%;border-radius:.32rem;background:var(--accent);
+    display:flex;align-items:center;justify-content:flex-end;gap:.5rem;
+    padding:0 .95rem;color:var(--surface);
+    font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .f-bar em{font-style:normal;font-weight:500;opacity:.85;font-size:.82rem}
+  .f-arrow{text-align:center;color:var(--accent);font-size:.95rem;font-weight:600;line-height:1;padding:.4rem 0}
+
+  .closing{
+    background:var(--ink);
+    color:#e9edf1;
+    border-radius:.6rem;
+    padding:clamp(1.5rem,4vw,2.3rem);
+    margin:3.6rem 0 0;
+  }
+  :root[data-theme="dark"] .closing,
+  :root:not([data-theme="light"]) .closing{background:var(--surface-2);color:var(--ink);border:1px solid var(--line-strong)}
+  .closing .kicker{color:var(--accent);margin-bottom:.8rem}
+  .closing h2{font-family:"Noto Serif KR",serif;font-weight:700;font-size:clamp(1.22rem,3.4vw,1.5rem);margin:0 0 1.1rem;color:inherit;text-wrap:balance;line-height:1.42}
+  .closing p{color:inherit;opacity:.93}
+  .closing .punch{
+    margin:1.4rem 0 0;padding-top:1.3rem;
+    border-top:1px solid rgba(255,255,255,.18);
+    font-family:"Noto Serif KR",serif;font-weight:600;
+    font-size:1.08rem;line-height:1.7;opacity:1;
+  }
+  :root[data-theme="dark"] .closing .punch,
+  :root:not([data-theme="light"]) .closing .punch{border-top:1px solid var(--line-strong)}
+
+  .coda{
+    margin:1.7rem 0 0;padding:1.9rem 1rem 0;
+    text-align:center;
+    border-top:2px solid var(--accent);
+    font-family:"Noto Serif KR",serif;font-weight:700;
+    font-size:clamp(1.2rem,3.5vw,1.6rem);
+    line-height:1.68;letter-spacing:-.012em;
+    color:var(--accent);
+    text-wrap:balance;
+  }
+
+  .foot{margin:2.4rem 0 0;font-size:.78rem;color:var(--ink-3);text-align:center;line-height:1.6}
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  @media (prefers-reduced-motion:no-preference){
+    section,.closing{animation:rise .5s ease both}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">2027학년도 고1 교육과정 편성 협의 자료</p>
+    <h1>왜 모든 학생이 「정보」와<br>「인공지능 기초」를 배워야 하는가</h1>
+    <div class="meta">
+      <span><b>주제</b> 모든 학생의 디지털 기초소양 보장</span>
+      <span><b>대상</b> 2027학년도 고1 입학생 (중학교 2015 개정 · 고등학교 2022 개정 적용)</span>
+      <span><b>작성</b> 정보과</span>
+    </div>
+  </header>
+
+  <p class="lede">
+    디지털 기술과 인공지능이 일상과 사회 전반을 움직이는 지금,
+    정보교육은 정보·컴퓨터 관련 진로를 택한 학생만을 위한 과목이 아닙니다.
+    모든 학생이 정보를 이해하고 · 문제를 구조화하고 · 데이터로 판단하고 ·
+    AI의 결과를 비판적으로 받아들이는 최소한의 힘을 갖추고 졸업해야 합니다.
+  </p>
+
+  <!-- Ⅰ -->
+  <section>
+    <div class="sec-head"><div class="sec-num">Ⅰ</div>
+      <h2>정보교육은 무엇을 배우는가</h2>
+    </div>
+    <div class="sec-body">
+      <p>
+        '정보' 하면 '코딩'부터 떠올리기 쉽지만, 정보는 특정 진로를 위한 기술 교육이 아닙니다.
+        복잡한 문제를 구조화하고 데이터를 바탕으로 판단하는 <strong>사고 방법</strong>을 배우는 과목이며,
+        그 범위는 인공지능의 기본 원리와 디지털 윤리까지 포함합니다.
+      </p>
+      <div class="learn">
+        <p class="learn-cap">정보 교과에서 배우는 내용</p>
+        <ul>
+          <li><strong>컴퓨팅 사고력</strong> — 복잡한 문제를 작은 문제로 나누고 핵심 요소와 규칙 찾기</li>
+          <li><strong>문제 해결</strong> — 문제 해결 절차를 설계하고 알고리즘으로 해결하기</li>
+          <li><strong>알고리즘</strong> — 효율적인 해결 절차를 설계하고 검증하기</li>
+          <li><strong>데이터</strong> — 자료와 데이터를 구조적으로 다루고 해석해 판단의 근거로 삼기</li>
+          <li><strong>디지털 정보 활용</strong> — 정보의 신뢰성과 출처를 비판적으로 판별하고, 디지털 도구로 표현·협업하기</li>
+          <li><strong>인공지능의 기본 원리</strong> — AI가 무엇이며 어떻게 학습하고 판단하는지 이해하기</li>
+          <li><strong>디지털 윤리와 책임</strong> — 개인정보·저작권·윤리 문제와 인간이 직접 판단해야 할 부분 구분하기</li>
+        </ul>
+      </div>
+      <p class="quote">
+        "코딩을 배우는 학생"을 넘어 <strong>"문제를 구조화하고 데이터로 판단하며
+        디지털 정보를 비판적으로 판별할 수 있는 학생"</strong>을 길러야 합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ⅱ -->
+  <section>
+    <div class="sec-head"><div class="sec-num">Ⅱ</div>
+      <h2>학생들은 지금까지 정보교육을 얼마나 경험했는가</h2>
+    </div>
+    <div class="sec-body">
+      <p>
+        학생들은 초·중학교 9년 동안 국어·수학·영어·사회·과학을 꾸준히 배웁니다.
+        반면 정보·SW 교육은 상대적으로 경험 시간이 적고, 학교에 따라 교육 경험의 편차도 큽니다.
+        국가 교육과정 기준 수업시수를 보면 그 차이가 분명하게 드러납니다.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>국가 교육과정 기준 수업시수 — 초·중학교 9년 (2027학년도 고1 입학생 기준 / 2015 개정 교육과정)</caption>
+          <thead>
+            <tr>
+              <th scope="col">교과</th>
+              <th scope="col">초등학교 6년</th>
+              <th scope="col">중학교 3년</th>
+              <th scope="col">초·중 누적</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>국어</td><td>1,264</td><td>442</td><td>1,706</td></tr>
+            <tr><td>수학</td><td>800</td><td>374</td><td>1,174</td></tr>
+            <tr><td>영어</td><td>340</td><td>340</td><td>680</td></tr>
+            <tr><td>사회·도덕</td><td>544</td><td>510</td><td>1,054</td></tr>
+            <tr><td>과학 <sup>*</sup></td><td>204 <sup>*</sup></td><td>680 <sup>*</sup></td><td>884 <sup>*</sup></td></tr>
+            <tr class="hi"><td>정보 <sup>*</sup></td><td><span class="sm">별도 과목 없음</span></td><td>34시간</td><td>34시간 이상 <sup>*</sup></td></tr>
+            <tr><td>체육</td><td>408</td><td>272</td><td>680</td></tr>
+            <tr><td>예술(음악·미술)</td><td>544</td><td>272</td><td>816</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.82rem;color:var(--ink-3);margin:.2rem 0 0">단위: 시간</p>
+
+      <div class="notes">
+        <ol>
+          <li><strong>과학 시수는 교과군 단위 배당</strong> — 초등 3~4학년 과학 204시간은 과학/실과 교과군 배당이며, 5~6학년은 과학과 실과가 함께 배당되어 단독 분리가 어렵습니다. 중학교 680시간은 과학/기술·가정/정보 교과군 전체 배당으로, 그 안에 정보(34시간)가 포함되어 있습니다. <a href="https://www.yna.co.kr/view/AKR20150922094400004" target="_blank" rel="noopener">연합뉴스</a></li>
+          <li><strong>초·중학교 정보교육 최소 기준</strong> — 초등학교 5~6학년 실과 내 소프트웨어 교육 17시간 이상, 중학교 정보 교과 34시간 이상을 편성·운영합니다(학교별 편성에 따라 다를 수 있음). 표의 '34시간 이상*'은 정보 교과 기준이며, 초등 실과 내 SW 교육을 포함한 초·중학교 정보·SW 관련 교육은 <strong>최소 51시간 이상</strong>입니다.</li>
+          <li><strong>고등학교에서는 선택하지 않으면 배우지 못한다</strong> — 2022 개정 교육과정에서도 고등학교 「정보」는 일반 선택과목, 「인공지능 기초」·「데이터 과학」은 진로 선택과목, 「소프트웨어와 생활」은 융합 선택과목으로 편성되어, 선택하지 않은 학생은 고등학교에서 정보·AI 교육을 받지 못합니다. 또한 2027학년도 고1 입학생은 초·중학교를 2015 개정으로 이수했기 때문에, 2022 개정의 정보교육 확대(초등 34시간, 중학교 68시간)는 이 학생들에게 적용되지 않습니다. <a href="https://www.kyobit.com/news/articleView.html?idxno=2308" target="_blank" rel="noopener">교보it뉴스</a> · <a href="https://home.pen.go.kr/hscredit/cm/cntnts/cntntsView.do?cntntsId=3729&mi=17411" target="_blank" rel="noopener">고교학점제 지원센터</a> · <a href="https://use.go.kr/component/file/ND_fileDownload.do?q_fileSn=779441&q_fileId=8fcacfc9-59ec-4e44-a015-9de36fdb28cf" target="_blank" rel="noopener">2022 개정 교육과정 총론</a></li>
+        </ol>
+      </div>
+
+      <div class="big-phrase">
+        적게 배웠지만,<br>
+        <em>사회에서는 가장 많이 만나게 될 지식</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ⅲ -->
+  <section>
+    <div class="sec-head"><div class="sec-num">Ⅲ</div>
+      <h2>다른 학교들은 정보교육을 얼마나 필수로 두고 있는가</h2>
+    </div>
+    <div class="sec-body">
+      <p>
+        서울 인문계고 230교의 교육과정을 분석한 결과, <strong>221교(96%)</strong>에서 학생들이 정보 교과를
+        이수하고 있었습니다. 이는 고등학교에서 '정보'가 법적으로 필수 과목이 아님에도,
+        거의 모든 학교가 교육과정에 정보를 포함하고 있다는 뜻입니다.
+      </p>
+
+      <div class="funnel">
+        <p class="funnel-cap">서울 인문계고 230교 교육과정 분석 — 정보·AI 교육 보장 현황 (막대 길이는 학교 수에 비례)</p>
+
+        <div class="f-row">
+          <div class="f-label"><b>①</b> 정보 과목을 개설한 학교</div>
+          <div class="f-track"><div class="f-bar" style="width:100%" title="221교 (96.1%)">221교 <em>96.1%</em></div></div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-label"><b>②</b> 그중 전교생에게 정보·AI 교육을 학교지정한 학교 <sup>*</sup></div>
+          <div class="f-track"><div class="f-bar" style="width:55.7%" title="123교 (53.5%)">123교 <em>53.5%</em></div></div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-label"><b>③</b> 그중 1학년부터 전교생에게 보장한 학교 <sup>*</sup></div>
+          <div class="f-track"><div class="f-bar" style="width:40.7%" title="90교 (39.1%)">90교 <em>39.1%</em></div></div>
+        </div>
+      </div>
+
+      <p>
+        특히 주목할 점은 <strong>123교(약 53%)</strong>가 정보를 '학교지정 과목'으로 운영하고 있다는 사실입니다.
+        학교지정은 해당 학년 전체 학생이 반드시 들어야 하는 필수 이수 과목을 의미하므로,
+        절반 이상의 학교가 전 학생 대상 정보 교육을 <strong>제도화</strong>한 것입니다.
+      </p>
+      <p>
+        더 나아가 <strong>90교(약 39%)</strong>는 1학년에 정보를 필수 편성하여, 입학하자마자 모든 학생이
+        정보·AI 기초소양을 습득하도록 하고 있습니다. 이는 단순히 "과목이 있다"를 넘어,
+        학교 차원에서 정보 교육을 <strong>핵심 역량</strong>으로 자리매김했음을 보여줍니다.
+      </p>
+      <div class="arrow">
+        <span>→</span>
+        <span>고등학교에서 정보 교과는 선택 과목이며, 교사 인력도 학교당 1명 수준으로 제한된 현실을 고려하면, 50%가 넘는 학교가 정보를 학교지정·1학년 필수로 선택한 것은 매우 의미 있는 현상입니다. 많은 학교가 정보·AI 교육의 중요성을 인식하고, 제한된 자원 속에서도 전 학생 대상 정보 교육을 우선순위로 삼았다는 증거로 해석할 수 있습니다.</span>
+      </div>
+
+      <div class="notes">
+        <ol>
+          <li><strong>학교지정</strong> — 학교가 교육과정 편성·운영 시 특정 과목을 전교생이 이수하도록 지정한 것을 의미합니다. 다른 교과와 학급을 번갈아 배우는 <strong>교차 편성</strong>도 전교생이 이수하므로 여기에 포함했습니다(개인별로는 한 학기 분량).</li>
+          <li><strong>② 전교생에게 학교지정한 학교(123교)</strong> — 「정보」·「인공지능 기초」·「데이터 과학」 등 정보 교과(군) 과목을 전교생 이수로 지정한 <strong>109교</strong>와, 정보 교과(군) 지정은 없으나 「정보와 디지털 문해력」·「인공지능 원리 탐구」 등 정보 관련 <strong>교양 과목</strong>을 전교생 이수로 지정한 <strong>14교</strong>를 합한 수치입니다. 학년은 제한하지 않습니다.</li>
+          <li><strong>③ 1학년부터 보장한 학교(90교)</strong> — ②의 123교 가운데 <strong>1학년</strong>에 정보 교과를 전교생 이수(학교지정 또는 교차 편성)로 편성해 정보교육을 1학년부터 시작하는 학교입니다. 나머지는 2학년 시작 16교, 3학년 시작 3교, 교양 과목으로만 편성 14교입니다.</li>
+          <li>본 수치는 서울 소재 인문계 고등학교 230교의 교육과정 편성 현황을 분석한 결과이며, 분석 대상 학교와 기준에 따라 달라질 수 있습니다.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ⅳ -->
+  <section>
+    <div class="sec-head"><div class="sec-num">Ⅳ</div>
+      <h2>왜 모든 학생에게 필요한가</h2>
+    </div>
+    <div class="sec-body">
+
+      <p class="sub"><b>①</b><span>정보는 특정 진로만을 위한 지식이 아닙니다</span></p>
+      <p>
+        국어를 모든 학생이 배우는 이유가 국어 교사를 기르기 위해서가 아니듯,
+        정보교육 역시 정보·컴퓨터 관련 진로를 선택한 학생만을 위한 교육이 아닙니다.
+        정보·컴퓨터 관련 진로를 위한 전문교육 <strong>이전에</strong>, 모든 학생에게 필요한
+        <strong>기초소양</strong>이라는 관점에서 접근할 필요가 있습니다.
+      </p>
+      <p>
+        2022 개정 교육과정에서도 <em class="mark">디지털 기초소양</em>은
+        모든 교과 학습과 평생학습의 기반이 되는 기초소양으로 제시되었습니다.
+      </p>
+
+      <p class="sub"><b>②</b><span>디지털 사회가 어떻게 작동하는지 이해해야 합니다</span></p>
+      <p>
+        학생들은 이미 검색, 추천 알고리즘, 온라인 플랫폼, 데이터, 생성형 AI 등을
+        일상적으로 접하고 있습니다. 그러나 그 원리와 한계를 배울 기회는 충분하지 않습니다.
+      </p>
+      <p class="quote">
+        단순히 <strong>"사용할 줄 아는 것"</strong>을 넘어
+        <strong>"어떻게 작동하는지 이해하고, 결과를 판단할 수 있는 능력"</strong>이 필요합니다.
+      </p>
+
+      <p class="sub"><b>③</b><span>보장받지 못하면 기회는 이미 가진 학생에게만 머뭅니다</span></p>
+      <p>
+        학교 밖에서 디지털·AI 역량을 쌓을 기회가 적은 학생일수록,
+        <strong>학교에서 보장되는 정보교육이 가장 절실한 안전망</strong>입니다.
+        가정환경과 경제적 여건에 따라 학생들이 디지털 기기, 인터넷 통신 환경,
+        생성형 AI 도구, 코딩·SW 교육 프로그램에 일상적으로 접할 수 있는 정도는
+        크게 달라집니다.
+      </p>
+      <p>
+        과학기술정보통신부와 한국지능정보사회진흥원의 「<strong>2025 디지털정보격차 실태조사</strong>」
+        (국가승인통계 제120017호)에 따르면, 정보취약계층의 디지털정보화 종합 수준은
+        일반 국민 대비 <strong>77.9점</strong>입니다. 접근(96.6%)은 거의 차이 없지만
+        활용(80.5%)과 <strong>역량</strong>에서 격차가 더 벌어집니다.
+        보급이 끝났다고 말할 수 없는 이유가 바로 이 지점에 있습니다.
+      </p>
+      <p>
+        교육부도 「<strong>2026 디지털새싹</strong>」으로 학생 16.5만 명에게 디지털 교육 프로그램을 지원하고,
+        인공지능(AI) 중점학교를 <strong>2026년 1,141개교 → 2027년 1,500개교 → 2028년 2,000개교</strong>로
+        확대해 모든 학생이 학교에서 AI 교육을 받도록 추진하고 있습니다.
+        이는 곧 <em class="mark">학교가 공통교육의 장이 되지 않으면, 기회는 이미 자원이 있는 학생에게만 머문다</em>는
+        인식을 반영한 정책 흐름입니다.
+      </p>
+      <p class="quote">
+        정보교육을 <strong>모든 학생에게 보장하는 것</strong>은,
+        가장 기회가 닿지 않는 학생들에게 마지막으로 남는 <strong>공정한 교육 안전망</strong>입니다.
+      </p>
+
+      <p class="sub"><b>④</b><span>AI 시대에는 더욱 중요해집니다</span></p>
+      <p>인공지능 기초에서 모든 학생이 알아야 할 내용입니다.</p>
+      <div class="learn">
+        <p class="learn-cap">AI를 사용하는 모든 사람이 알아야 할 기본 상식</p>
+        <ul>
+          <li><strong>인공지능은 무엇인가</strong> — AI의 개념과 작동 방식의 기본 이해</li>
+          <li><strong>데이터와 학습의 관계</strong> — AI가 데이터로부터 배우는 원리</li>
+          <li><strong>AI는 어떻게 판단·예측하는가</strong> — 분류·예측 등 기본 원리</li>
+          <li><strong>생성형 AI의 특징</strong> — 결과를 만들어내는 방식과 특성</li>
+          <li><strong>AI의 오류와 한계</strong> — 틀린 결과가 나올 수 있는 이유와 확인 방법</li>
+          <li><strong>편향</strong> — 데이터와 알고리즘에 담긴 편향의 문제</li>
+          <li><strong>개인정보 · 저작권</strong> — 생성형 AI 사용에서의 책임과 윤리</li>
+          <li><strong>AI 결과를 비판적으로 판단하기</strong> — 인간이 직접 판단해야 할 부분 구분</li>
+        </ul>
+      </div>
+      <p class="quote">
+        AI를 만드는 사람만 AI를 알아야 하는 것이 아니라,
+        <strong>AI를 사용하는 모든 사람이 AI를 이해할 필요가 있습니다</strong>.
+      </p>
+
+      <p class="sub"><b>⑤</b><span>세계적으로도 정보·AI 교육은 모든 학생의 기초소양으로 확대되고 있습니다</span></p>
+      <p>
+        UNESCO와 OECD는 AI 시대에 필요한 역량으로 AI의 원리와 데이터를 이해하고,
+        그 결과를 비판적으로 판단하며 책임 있게 활용하는 능력을 강조하고 있습니다.
+        실제로 영국은 2014년부터 만 5~16세 모든 학생에게 「컴퓨팅」을 필수 교과로 가르치고,
+        일본은 2022년부터 고등학교 「정보Ⅰ」을 전원 필수로 지정해 2025학년도부터
+        대학입학공통테스트 정식 과목으로 반영했으며, 중국도 2022년부터 정보과학기술을
+        초·중학교(3~8학년) 독립 필수 교과로 편성했습니다.
+        호주도 2014년 9월부터 Foundation(만 5세)부터 Year 10까지의 모든 학생을 대상으로
+        국가교육과정에서 「Digital Technologies」를 가르치고 있으며,
+        뉴질랜드도 2018년부터 모든 학생이 컴퓨터적 사고와 디지털 기술을 학습하도록
+        국가교육과정에 「Digital Technologies and Hangarau Matihiko」 영역을 도입했습니다.
+      </p>
+      <div class="notes">
+        <p>
+          ※ 본 단락의 국가별 정보교육 사례는 영국 · 일본 · 중국 · 호주 · 뉴질랜드의 국가교육과정 또는 공식 통계를 바탕으로 정리한 것입니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ⅴ -->
+  <div class="closing">
+    <p class="kicker">Ⅴ — 결론</p>
+    <h2>정보교육은 선택적인 전문교육을 넘어<br>모든 학생에게 필요한 기초소양입니다</h2>
+    <p>
+      학생들은 초·중학교에서 정보교육을 상대적으로 적은 시간 동안 경험하고 있으며,
+      학교에 따라 그 경험의 차이도 큽니다.
+    </p>
+    <p>
+      반면 디지털 기술과 인공지능은 진로와 관계없이 모든 학생의
+      학습·생활·사회생활에 지속적으로 영향을 미치고 있습니다.
+    </p>
+    <p class="punch">
+      따라서 고등학교 교육과정에서도 모든 학생이 정보 및 인공지능에 대한
+      기본적인 지식과 사고능력을 갖출 수 있도록
+      <strong>정보교육을 일정 수준 이상 보장할 필요가 있습니다</strong>.
+    </p>
+  </div>
+
+  <p class="coda">학교에서 가장 적게 배운 지식이,<br>졸업 후에는 가장 많이 마주하게 될 지식입니다.</p>
+
+  <p class="foot">※ 본 문서는 2027학년도 고등학교 1학년 입학생을 대상으로 합니다. 이 학생들은 중학교까지 2015 개정 교육과정을, 고등학교에서 2022 개정 교육과정을 적용받습니다. Ⅲ의 수치는 서울 인문계고 230교 교육과정 편성 분석 결과입니다.</p>
+
+</div>
+</body>
+</html>
