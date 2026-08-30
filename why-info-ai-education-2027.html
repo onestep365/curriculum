@@ -78,6 +78,20 @@
     border-bottom:1px solid var(--line-strong);
     padding:1.4rem 0 1.5rem;
     margin-bottom:2.6rem;
+    display:flex;
+    gap:1.6rem;
+    align-items:flex-start;
+  }
+  .masthead-main{flex:1 1 auto;min-width:0}
+  .masthead-qr{
+    flex:none;
+    width:116px;height:116px;
+    align-self:center;
+    border-radius:.35rem;
+  }
+  @media (max-width:33rem){
+    .masthead{flex-direction:column;gap:1.1rem}
+    .masthead-qr{align-self:flex-start;width:104px;height:104px}
   }
   .kicker{
     font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
@@ -299,13 +313,16 @@
 <div class="wrap">
 
   <header class="masthead">
-    <p class="kicker">2027학년도 고1 교육과정 편성 협의 자료</p>
-    <h1>왜 모든 학생이 「정보」와<br>「인공지능 기초」를 배워야 하는가</h1>
-    <div class="meta">
-      <span><b>주제</b> 모든 학생의 디지털 기초소양 보장</span>
-      <span><b>대상</b> 2027학년도 고1 입학생 (중학교 2015 개정 · 고등학교 2022 개정 적용)</span>
-      <span><b>작성</b> 정보과</span>
+    <div class="masthead-main">
+      <p class="kicker">2027학년도 고1 교육과정 편성 협의 자료</p>
+      <h1>왜 모든 학생이 「정보」와<br>「인공지능 기초」를 배워야 하는가</h1>
+      <div class="meta">
+        <span><b>주제</b> 모든 학생의 디지털 기초소양 보장</span>
+        <span><b>대상</b> 2027학년도 고1 입학생 (중학교 2015 개정 · 고등학교 2022 개정 적용)</span>
+        <span><b>작성</b> onestep365@senedu.kr</span>
+      </div>
     </div>
+    <img class="masthead-qr" alt="이 자료를 여는 QR 코드" width="116" height="116" src="data:image/png;base64,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">
   </header>
 
   <p class="lede">
@@ -440,7 +457,7 @@
       </p>
       <div class="arrow">
         <span>→</span>
-        <span>고등학교에서 정보 교과는 선택 과목이며, 교사 인력도 학교당 1명 수준으로 제한된 현실을 고려하면, 50%가 넘는 학교가 정보를 학교지정·1학년 필수로 선택한 것은 매우 의미 있는 현상입니다. 많은 학교가 정보·AI 교육의 중요성을 인식하고, 제한된 자원 속에서도 전 학생 대상 정보 교육을 우선순위로 삼았다는 증거로 해석할 수 있습니다.</span>
+        <span>고등학교에서 정보 교과는 선택 과목이고, 정보 교사도 일반고에 평균 1명 남짓(전국 배치율 109.1%, 2025년 9월) 배치된 현실을 고려하면, 50%가 넘는 학교가 정보를 학교지정·1학년 필수로 편성한 것은 매우 의미 있는 현상입니다. 많은 학교가 정보·AI 교육의 중요성을 인식하고, 제한된 자원 속에서도 전 학생 대상 정보 교육을 우선순위로 삼았다는 증거로 해석할 수 있습니다.</span>
       </div>
 
       <div class="notes">
@@ -448,7 +465,8 @@
           <li><strong>학교지정</strong> — 학교가 교육과정 편성·운영 시 특정 과목을 전교생이 이수하도록 지정한 것을 의미합니다. 다른 교과와 학급을 번갈아 배우는 <strong>교차 편성</strong>도 전교생이 이수하므로 여기에 포함했습니다(개인별로는 한 학기 분량).</li>
           <li><strong>② 전교생에게 학교지정한 학교(123교)</strong> — 「정보」·「인공지능 기초」·「데이터 과학」 등 정보 교과(군) 과목을 전교생 이수로 지정한 <strong>109교</strong>와, 정보 교과(군) 지정은 없으나 「정보와 디지털 문해력」·「인공지능 원리 탐구」 등 정보 관련 <strong>교양 과목</strong>을 전교생 이수로 지정한 <strong>14교</strong>를 합한 수치입니다. 학년은 제한하지 않습니다.</li>
           <li><strong>③ 1학년부터 보장한 학교(90교)</strong> — ②의 123교 가운데 <strong>1학년</strong>에 정보 교과를 전교생 이수(학교지정 또는 교차 편성)로 편성해 정보교육을 1학년부터 시작하는 학교입니다. 나머지는 2학년 시작 16교, 3학년 시작 3교, 교양 과목으로만 편성 14교입니다.</li>
-          <li>본 수치는 서울 소재 인문계 고등학교 230교의 교육과정 편성 현황을 분석한 결과이며, 분석 대상 학교와 기준에 따라 달라질 수 있습니다.</li>
+          <li>분석 대상은 서울 소재 인문계고 230교(일반고 214·자율고 16)이며, 특성화고·특수목적고는 제외했습니다. 과학중점학교는 일반과정 편제표 기준입니다. '학교지정' 여부는 공시된 편제표를 분석해 판정한 것으로, 학교별 실제 운영과는 일부 차이가 있을 수 있습니다.</li>
+          <li><strong>정보 교사 배치율(전국, 2025년 9월)</strong> — 일반고 109.1% · 중학교 57.4% · 중·고 전체 75.4%. 정성국 의원실이 교육부로부터 받은 '시도별 정보교사 현황'. <a href="https://www.newsis.com/view/NISX20260403_0003577267" target="_blank" rel="noopener">뉴시스, 2026-04-03</a></li>
         </ol>
       </div>
     </div>
@@ -492,18 +510,14 @@
         크게 달라집니다.
       </p>
       <p>
-        과학기술정보통신부와 한국지능정보사회진흥원의 「<strong>2025 디지털정보격차 실태조사</strong>」
-        (국가승인통계 제120017호)에 따르면, 정보취약계층의 디지털정보화 종합 수준은
-        일반 국민 대비 <strong>77.9점</strong>입니다. 접근(96.6%)은 거의 차이 없지만
-        활용(80.5%)과 <strong>역량</strong>에서 격차가 더 벌어집니다.
-        보급이 끝났다고 말할 수 없는 이유가 바로 이 지점에 있습니다.
+        게다가 학생들의 디지털 역량은 전반적으로 높지 않습니다.
+        한국교육학술정보원(KERIS)이 전국 초·중학생을 대상으로 측정한 「<strong>학생 디지털 리터러시 수준</strong>」은
+        100점 만점에 초등학생 <strong>60.46점</strong>, 중학생 <strong>59.98점</strong>에 그쳤고,
+        특히 <em class="mark">정보를 창의적으로 생산·활용하는 영역</em>이 가장 취약했습니다 — 정보 교과가 길러야 할 바로 그 능력입니다.
       </p>
-      <p>
-        교육부도 「<strong>2026 디지털새싹</strong>」으로 학생 16.5만 명에게 디지털 교육 프로그램을 지원하고,
-        인공지능(AI) 중점학교를 <strong>2026년 1,141개교 → 2027년 1,500개교 → 2028년 2,000개교</strong>로
-        확대해 모든 학생이 학교에서 AI 교육을 받도록 추진하고 있습니다.
-        이는 곧 <em class="mark">학교가 공통교육의 장이 되지 않으면, 기회는 이미 자원이 있는 학생에게만 머문다</em>는
-        인식을 반영한 정책 흐름입니다.
+      <p style="font-size:.8rem;color:var(--ink-3);margin:-.4rem 0 1.05rem">
+        출처: 한국교육학술정보원(KERIS), 「2025년 학생 디지털 리터러시 수준 측정 연구」 ·
+        <a href="https://www.newsis.com/view/NISX20260327_0003567279" target="_blank" rel="noopener">뉴시스, 2026-03-27</a>
       </p>
       <p class="quote">
         정보교육을 <strong>모든 학생에게 보장하는 것</strong>은,
@@ -544,9 +558,7 @@
         국가교육과정에 「Digital Technologies and Hangarau Matihiko」 영역을 도입했습니다.
       </p>
       <div class="notes">
-        <p>
-          ※ 본 단락의 국가별 정보교육 사례는 영국 · 일본 · 중국 · 호주 · 뉴질랜드의 국가교육과정 또는 공식 통계를 바탕으로 정리한 것입니다.
-        </p>
+        <p>※ ⑤의 국가별 정보교육 사례는 영국·일본·중국·호주·뉴질랜드의 국가교육과정 또는 공식 통계를 바탕으로 정리했습니다.</p>
       </div>
     </div>
   </section>
