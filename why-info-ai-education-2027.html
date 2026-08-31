@@ -277,7 +277,12 @@
   }
   :root[data-theme="dark"] .closing,
   :root:not([data-theme="light"]) .closing{background:var(--surface-2);color:var(--ink);border:1px solid var(--line-strong)}
-  .closing .kicker{color:var(--accent);margin-bottom:.8rem}
+  .closing .kicker{
+    font-family:"Noto Serif KR",serif;
+    font-size:1rem;font-weight:600;
+    letter-spacing:.02em;text-transform:none;
+    color:var(--accent);margin-bottom:.75rem;
+  }
   .closing h2{font-family:"Noto Serif KR",serif;font-weight:700;font-size:clamp(1.22rem,3.4vw,1.5rem);margin:0 0 1.1rem;color:inherit;text-wrap:balance;line-height:1.42}
   .closing p{color:inherit;opacity:.93}
   .closing .punch{
